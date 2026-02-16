@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Live Music Experience</title>
+    <meta name="description" content="Step into the future of live music with our augmented reality performances.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
+    <!-- GSAP + Plugins -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollToPlugin.min.js"></script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎵</text></svg>">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <div class="loader-ring"></div>
+            <span class="loader-text">Loading</span>
+        </div>
+    </div>
+
+    <!-- Three.js Canvas -->
+    <canvas id="webgl"></canvas>
+
+    <!-- Scroll Container -->
+    <div id="scroll-container">
+        
+        <!-- Section 1: Hero -->
+        <section id="hero" class="section">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    <span>New Experience</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">BEYOND</span>
+                    <span class="title-line">REALITY</span>
+                </h1>
+                <p class="hero-description">
+                    Where music meets the metaverse. An augmented reality 
+                    live performance that transforms how you experience sound.
+                </p>
+                <div class="hero-cta">
+                    <a href="#experience" class="btn-primary">
+                        <span>Explore</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="btn-secondary">Watch Trailer</a>
+                </div>
+            </div>
+            <div class="scroll-hint">
+                <div class="scroll-line"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- Section 2: Experience -->
+        <section id="experience" class="section">
+            <div class="experience-content">
+                <div class="exp-header">
+                    <span class="exp-label">01 / The Experience</span>
+                    <h2 class="exp-title">Step Into<br/>The Sound</h2>
+                </div>
+                <div class="exp-grid">
+                    <div class="exp-card" data-index="01">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Immersive Audio</h3>
+                        <p>Spatial sound that surrounds you, responding to your movement in real-time.</p>
+                    </div>
+                    <div class="exp-card" data-index="02">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                            </svg>
+                        </div>
+                        <h3>AR Visuals</h3>
+                        <p>Stunning augmented reality that transforms your world into a living artwork.</p>
+                    </div>
+                    <div class="exp-card" data-index="03">
+                        <div class="card-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3>Live Energy</h3>
+                        <p>Real-time reactive environments that pulse with the beat of the music.</p>
+                    </div>
+                </div>
+                <div class="exp-footer">
+                    <div class="footer-stats">
+                        <div class="stat">
+                            <span class="stat-number">50K+</span>
+                            <span class="stat-label">Attendees</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Cities</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">∞</span>
+                            <span class="stat-label">Possibilities</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-primary large">
+                        <span>Get Tickets</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Fixed Elements -->
+    <nav class="nav-fixed">
+        <div class="nav-logo">AR</div>
+        <div class="nav-links">
+            <a href="#hero">Home</a>
+            <a href="#experience">Experience</a>
+        </div>
+    </nav>
+
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/scene.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
